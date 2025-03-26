@@ -2,3 +2,7 @@ openai
 python-dotenv
 midiutil
 pygame
+sounddevice  # For recording audio
+soundfile    # For saving recording as WAV
+numpy        # Dependency for sounddevice
+# Removed: requests, duckduckgo_search, SpeechRecognition, PyAudio, pyttsx3
