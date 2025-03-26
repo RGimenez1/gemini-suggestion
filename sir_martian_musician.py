@@ -34,7 +34,7 @@ SAMPLE_RATE = 16000  # 16kHz for compatibility with most audio processing
 
 # Updated TTS Configuration for latest model
 TTS_MODEL = "gpt-4o-mini-tts"  # Use the latest TTS model
-TTS_VOICE = "nova"  # Voice option - still using standard voice names
+TTS_VOICE = "fable"  # Voice option - still using standard voice names
 TTS_SPEED = 1.2  # Speed parameter (1.0 is normal)
 TTS_RESPONSE_FORMAT = "mp3"  # Using mp3 for broad compatibility
 
@@ -204,7 +204,8 @@ def speak(text_to_speak):
             voice=TTS_VOICE,
             input=text_to_speak,
             speed=TTS_SPEED,
-            response_format=TTS_RESPONSE_FORMAT
+            response_format=TTS_RESPONSE_FORMAT,
+            instructions="speak in a THICK french accent. Very thick."
         )
         audio_bytes = response.content
         audio_stream = io.BytesIO(audio_bytes)
@@ -458,7 +459,7 @@ try:
     time.sleep(0.2) # Give it a moment
     silent_stream.close()
     print("Audio output check successful.")
-    try_speak_with_fallback("AI Music Assistant ready with the latest voice technology. How can I help create music today?")
+    try_speak_with_fallback("Hey, this is Sir Martian. Lets play some earthly music today, shall we?")
 except Exception as audio_init_err:
      print(f"CRITICAL ERROR during audio output check: {audio_init_err}")
      print("Please check your audio output device and pygame setup.")
