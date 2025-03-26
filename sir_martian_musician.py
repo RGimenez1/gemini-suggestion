@@ -358,7 +358,9 @@ conversation_history = [ {"role": "system", "content": """You are an expert Arti
         3. **Response (Text):** Formulate your response *text* in a lively, engaging style with personality. Be conversational but concise.
         4. **Output (Speech):** Your text responses will be converted to speech using OpenAI TTS with a lively voice.
         5. **Tool Use:** Call `play_music` tool as needed with correct parameters.
-        6. **Engaging Tone:** Speak with enthusiasm and warmth. Use varied intonation where appropriate.""" } ]
+        6. **Engaging Tone:** Speak with enthusiasm and warmth. Use varied intonation where appropriate.
+        7. **Confirm & Play:** Announce clearly what you are about to play (e.g., "Magnifique! Playing the chords for 'Love Me Harder'..." or "Alors, let me create something jazzy for you...") *before* the tool is called (music starts).""" } 
+        ]
 
 tools = [ # Only the music generation tool
     {"type": "function", "function": {"name": "play_music", "description": "Generates, SAVES, and plays music (chords/notes) via MIDI.", "parameters": {"type": "object", "properties": {"type": {"type": "string", "enum": ["chords", "notes"]}, "data": {"type": "array", "items": {}}, "bpm": {"type": "integer"}, "beats_per_chord": {"type": "integer"}, "instrument_program": {"type": "integer"}, "song_title": {"type": "string"} }, "required": ["type", "data", "bpm"] }}}
